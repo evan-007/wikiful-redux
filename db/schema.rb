@@ -17,13 +17,15 @@ ActiveRecord::Schema.define(version: 20140111105534) do
   enable_extension "plpgsql"
 
   create_table "article_categories", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "articles", force: true do |t|
     t.string   "title"
-    t.text     "body"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
