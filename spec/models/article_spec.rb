@@ -27,8 +27,6 @@ describe Article do
   	expect(article2).to_not be_valid #or expect(article2).to have(1).errors_on(:title)
   end
   
-  it "has a category"
-
   it "has many categories"
 
   it "is invalid without a category"
