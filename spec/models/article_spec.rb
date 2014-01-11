@@ -20,6 +20,14 @@ describe Article do
   it "is invalid with a duplicate title" do
   	article = Article.create(title: "Best article", body: "9 Pulitzer prizes")
   	article2 = Article.new(title: "Best article", body: "9 Pulitzer prizes")
-  	expect(article2).to_not be_valid
+  	expect(article2).to_not be_valid #or expect(article2).to have(1).errors_on(:title)
   end
+
+  it "belongs to a user"
+
+  it "has a category"
+
+  it "has many categories"
+
+  it "is invalid without a category"
 end
