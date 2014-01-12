@@ -33,5 +33,12 @@ feature 'Guest users' do
 		expect(page).to have_content 'Thanks for signing up!'
 	end
 
+	scenario "see errors when signing up with invalid params" do
+		visit '/'
+		click_link 'Sign up'
+		click_button 'Submit'
+		expect(page).to have_content 'errors'
+	end
+
 
 end
