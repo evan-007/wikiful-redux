@@ -22,4 +22,16 @@ feature 'Guest users' do
 
 	scenario "can view articles by date"
 
+	scenario "can register an account" do
+		visit '/'
+		click_link 'Sign up'
+		fill_in 'Name', with: 'Santa Claus'
+		fill_in 'Email', with: 'papac@hohoho.com'
+		fill_in 'Password', with: 'pr3s3nt5'
+		fill_in 'Password confirmation', with: 'pr3s3nt5'
+		click_button 'Submit'
+		expect(page).to have_content 'Thanks for signing up!'
+	end
+
+
 end

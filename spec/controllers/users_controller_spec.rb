@@ -16,7 +16,8 @@ describe UsersController do
 	describe "POST #create" do
 		context "with valid attributes" do
 			it "saves a new user in the database" do
-				expect{ post :create, user: attributes_for(:user)}.to change(User, :count).by(1)
+				expect{ post :create, user: attributes_for(:user)}.to \
+				change(User, :count).by(1)
 			end 
 
 			it "redirects to root" do
@@ -27,7 +28,8 @@ describe UsersController do
 
 		context "with invalid attributes" do
 			it "does not save the user in the database" do
-				expect{ post :create, user: attributes_for(:user, :name => nil)}.to_not change(User, :count)
+				expect{ post :create, user: attributes_for(:user, :name => nil)}.to_not \
+				change(User, :count)
 			end
 
 			it "renders User#new" do
@@ -36,5 +38,4 @@ describe UsersController do
 			end
 		end
 	end
-
 end
