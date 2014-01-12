@@ -33,8 +33,16 @@ describe ArticlesController do
 	end
 
 	describe "GET #new" do
-		it "assigns a new Article to @article"
-		it "renders the :new view"
+		it "assigns a new Article to @article" do
+			get :new
+			expect(assigns(:article)).to be_a_new(Article)
+		end
+
+		it "renders the :new view" do
+			article = build(:article)
+			get :new, id: article
+			expect(response).to render_template :new
+		end
 	end
 
 	describe "POST #create" do
