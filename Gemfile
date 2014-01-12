@@ -4,6 +4,7 @@ gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+gem "faker", "~> 1.1.2"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -37,7 +38,6 @@ group :development, :test do
 end
 
 group :test do
-	gem "faker", "~> 1.1.2"
 	gem "capybara", "~> 2.1.0"
 	gem "selenium-webdriver", "~> 2.35.1"
 end
