@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 feature 'Guest users' do
+	before do
+		create(:article)
+	end
 
 	scenario "view the article index" do
 		visit root_path
