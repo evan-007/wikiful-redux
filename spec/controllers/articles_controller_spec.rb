@@ -39,21 +39,36 @@ describe ArticlesController do
 		end
 
 		it "renders the :new view" do
-			article = build(:article)
-			get :new, id: article
+			get :new
 			expect(response).to render_template :new
 		end
 	end
 
 	describe "POST #create" do
 		context "with valid attributes" do
-			it "saves the new article in the database"
-			it "redirects to articles#show"
+			it "saves the new article in the database" do
+				expect{
+					post :create, article: attributes_for(:article)
+					}.to change(Article, :count).by(1)
+			end
+
+			it "redirects to articles#show" do
+				post :create, article: attributes_for(:article)
+				expect(response).to redirect_to article_path(assigns[:article])
+				end 
 		end
 
 		context "with invalid attributes" do
-			it "does not save the article in the database"
-			it "renders the :new view"
+			it "does not save the article in the database" do
+				expect{
+					post :create, article: attributes_for(:article, :title => nil)
+					}.to_not change(Article, :count).by(1)
+				end
+				
+			it "renders the :new view" do
+				post :create, article: attributes_for(:article, :title => nil)
+				expect(response).to render_template :new
+			end
 		end
 	end
 
