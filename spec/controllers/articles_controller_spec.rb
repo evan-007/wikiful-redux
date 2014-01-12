@@ -5,7 +5,11 @@ describe ArticlesController do
 	describe "GET #index" do
 		context "without params[:user]" do
 			it "returns an array of all articles"
-			it "renders the :index view"
+
+			it "renders the :index view" do
+				get :index
+				expect(response).to render_template :index
+			end
 		end
 	end
 
@@ -13,7 +17,7 @@ describe ArticlesController do
 		it "assigns the requested article to @contact" do
 			article = create(:article)
 			get :show, id: article
-			expect(assigns(:article)).to eq article
+			expect(assigns(:article)).to eq article #assigns checks that the value assigned to @article = article
 		end
 
 		it "renders the :show view" do
