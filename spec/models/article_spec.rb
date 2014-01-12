@@ -24,8 +24,8 @@ describe Article do
   end
 
   it "is invalid with a duplicate title" do
-  	create(:article)
-  	expect(build(:article)).to_not be_valid
+  	create(:article, :title => "your mom's favorite book")
+  	expect(build(:article, :title => "your mom's favorite book")).to_not be_valid
   end
   
   it "has many categories" 
