@@ -4,13 +4,13 @@ feature 'Guest users' do
 
 	scenario "view the article index" do
 		visit root_path
-		expect(page).to have_content("5 Articles")
+		expect(page).to have_content("Articles:")
 	end
 
 	scenario "view an article" do
 		visit root_path
-		click_link "read more"
-		expect(page).to have_content(title)
+		first(:link, 'read more').click
+		expect(page).to have_content("Article:")
 	end
 
 	scenario "can't create a new article"

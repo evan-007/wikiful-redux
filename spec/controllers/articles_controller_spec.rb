@@ -8,7 +8,7 @@ describe ArticlesController do
 				raisin = create(:article, title: "raisin")
 				grape = create(:article, title: "grape")
 				get :index
-				expect(assigns(:articles)).to match_array([raisin, grape])
+				expect(assigns(:articles)).to include([raisin, grape])
 			end
 
 			it "renders the :index view" do

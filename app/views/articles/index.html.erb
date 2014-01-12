@@ -1,0 +1,10 @@
+<h2>Welcome to Wikiful Redux</h2>
+<h3>TDD-edition</h3>
+<p>Articles:</p>
+<% @articles.each do |article| %>
+<ul>
+  <h3><%= link_to article.title, article_path(article) %></h3>
+  <p><%= truncate(article.content, length: 20) %></p>
+  <%= link_to "read more", article_path(article) %>
+</ul>
+<% end %>
