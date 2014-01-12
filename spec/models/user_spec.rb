@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe User do
 
+  def user_with_articles
+  	create(:user) do |u|
+  		3.times { u.articles << create(:article) }
+  	end
+  end
+
+
   it "is valid with a name, email and password_digest" do
   	build(:user).should be_valid
   end
@@ -37,5 +44,8 @@ describe User do
   	expect(build(:user)).to have(1).errors_on(:email)
   end
 
-  it "has many articles"
+  it "has many articles" do
+  	user_with_articles.articles.size.should eq 3
+  end
+
 end
