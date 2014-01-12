@@ -32,8 +32,7 @@ describe Article do
 
 
   it "is invalid without a category" do
-  	@article.category.find(1) == nil
-  	expect(@article).to have(1).errors_on(:categories)
+  	expect(build(:article, :association => nil)).to_not be_valid
   end
 
 
