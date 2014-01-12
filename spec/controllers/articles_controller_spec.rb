@@ -4,7 +4,12 @@ describe ArticlesController do
 
 	describe "GET #index" do
 		context "without params[:user]" do
-			it "returns an array of all articles"
+			it "returns an array of all articles" do
+				raisin = create(:article, title: "raisin")
+				grape = create(:article, title: "grape")
+				get :index
+				expect(assigns(:articles)).to match_array([raisin, grape])
+			end
 
 			it "renders the :index view" do
 				get :index
