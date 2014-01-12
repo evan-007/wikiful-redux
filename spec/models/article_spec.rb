@@ -25,7 +25,7 @@ describe Article do
 
   it "is invalid with a duplicate title" do
   	create(:article)
-  	expect(build(:article)).to_not be_valid #or expect(article2).to have(1).errors_on(:title)
+  	expect(build(:article)).to_not be_valid
   end
   
   it "has many categories" 

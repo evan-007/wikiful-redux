@@ -10,8 +10,17 @@ describe ArticlesController do
 	end
 
 	describe "GET #show" do
-		it "assigns the requested article to @contact"
-		it "renders the :show view"
+		it "assigns the requested article to @contact" do
+			article = create(:article)
+			get :show, id: article
+			expect(assigns(:article)).to eq article
+		end
+
+		it "renders the :show view" do
+			article = create(:article)
+			get :show, id: article
+			expect(response).to render_template :show
+		end
 	end
 
 	describe "GET #new" do

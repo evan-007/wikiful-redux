@@ -2,6 +2,10 @@
 
 FactoryGirl.define do
   factory :article do
+  	title "Best Book Ever"
+  	content "Just kidding"
+  end
+  factory :article_many do
     sequence(:title) { |n| "Harry Potter Book ##{n}" }
     sequence(:content) { |n|  "Once upon a time there were #{n} wizards..." }
     
