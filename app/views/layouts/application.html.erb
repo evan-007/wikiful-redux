@@ -10,7 +10,10 @@
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: name %>
   <% end %>
+<%= link_to "New article", new_article_path %>
 <%= yield %>
-
+<%= link_to "Sign up", new_user_path %>
+<%= link_to "Login", new_session_path %>
+<%= link_to "Logout", session_path("current"), method: "delete" %>
 </body>
 </html>

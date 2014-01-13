@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.create(article_params)
 		if @article.valid?
+			flash[:notice] = "Thanks for writing for this demo site!"
 			redirect_to @article
 		else
 			render 'new'
