@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe ArticlesController do
+	before :each do
+		user = create(:user)
+		session[:user_id] = user.id
+	end
 
 	describe "GET #index" do
 		context "without params[:user]" do
