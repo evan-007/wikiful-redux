@@ -12,5 +12,10 @@
     <%= f.text_field :title %><br />
     <%= f.label :content %><br />
     <%= f.text_area :content %>
+    <%= f.label 'Pick at least one category' %>
+      <% Category.all.order(name: :asc).each do |category| %>
+        <%= check_box_tag "article[category_ids][]", category.id %>
+        <%= category.name %>
+      <% end -%>
     <%= f.submit "Submit" %>
 <% end %>

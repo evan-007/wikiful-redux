@@ -2,3 +2,9 @@
 
 Article:<br />
 <p><%= @article.content %></p>
+
+<br/>
+
+Filed under: <% @article.categories.each do |category| %>
+<%= category.name %>&nbsp;
+<% end %>
