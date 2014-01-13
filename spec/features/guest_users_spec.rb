@@ -16,7 +16,11 @@ feature 'Guest users' do
 		expect(page).to have_content("Article:")
 	end
 
-	scenario "can't create a new article"
+	scenario "can't create a new article" do
+		visit root_path
+		click_link "New article"
+		expect(page).to have_content "You need to log in to do that!"
+	end
 
 	scenario "can view articles by author"
 

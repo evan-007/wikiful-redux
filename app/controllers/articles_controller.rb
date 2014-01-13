@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+	before_filter :authorize, only: [:new, :create]
+
 	def show
 		@article = Article.find(params[:id])
 	end
