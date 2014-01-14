@@ -10,7 +10,7 @@ describe SessionsController do
 
 	describe "POST #create" do
 		context "correct login information" do
-			it "sets the user session"
+			it "sets the user session" 
 			it "redirects to root"
 		end
 		

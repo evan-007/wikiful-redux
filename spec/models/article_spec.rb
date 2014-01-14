@@ -1,11 +1,13 @@
 require 'spec_helper'
 
 describe Article do
-  before(:each) do
-  	# category_double = double('category')
-   #  category_double.should_receive(:in).and_return(1)
-  	# category_double.should_receive(:name).and_return('Breaking news!')
-  	@article = Article.new(title: "Amazing journalism", content: "what a nice article!")
+  def article_with_many_categories
+    category_1 = double("category")
+    category_2 = double("category")
+    create(:article) do |a|
+      ( a.categories << category_1)
+      ( a.categories << category_2)
+    end
   end
 
   it "is valid with a title, content and category" do
@@ -28,13 +30,16 @@ describe Article do
   	expect(build(:article, :title => "your mom's favorite book")).to_not be_valid
   end
   
-  it "has many categories" 
+  it "has many categories" do
+    expect(article_with_many_categories.categories.count).to eq(2) 
+  end
 
 
-  it "is invalid without a category" 
-  # do
-  # 	expect(build(:article, :association => nil)).to_not be_valid
-  # end
+
+  it "is invalid without a category" do
+    expect(build(:article, article_categories: nil)).to_not be_valid
+  end
+  
 
 
 end
