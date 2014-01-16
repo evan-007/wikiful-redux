@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My take on Thinkful's testing unit:
 
-Things you may want to cover:
+Basic wiki-ish application: users can create accounts, log in and then post articles to a category.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Some tests are still pending, but their functionality is covered by other tests. For example, the sessions controller has pending tests, but all of its functionality is covered by the features specs.
